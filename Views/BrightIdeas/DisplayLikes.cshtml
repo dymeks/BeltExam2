@@ -1,0 +1,26 @@
+<div class="container">
+    <div>
+        <a href="/bright_ideas">Bright Ideas</a>
+        <a href="/logout">Logout</a>
+    </div>
+    <div>
+        <p><a href="/users/@ViewBag.post.CreatedById">@ViewBag.post.CreatedBy.Alias</a> says:</p>
+        <p>@ViewBag.post.Message</p>
+    </div>
+    <h1>People who liked this post: </h1>
+    <table>
+        <thead>
+            <th>Alias</th>
+            <th>Name</th>
+        </thead>
+        <tbody>
+            @foreach(Like like in ViewBag.postLikes)
+            {
+                <tr>
+                    <td><a href="/users/@like.User.UserId">@like.User.Alias</a></td>
+                    <td>@like.User.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,52 @@
+<div class="header">
+        <h1>CodingDojo Wall</h1>
+        <p>Welcome, @ViewBag.name</p>
+        <a href="/logout">Logout</a>
+    </div>
+
+    @model BeltExam2.Models.Post
+    <div class="postMessage">
+        <form asp-controller="BrightIdeas" asp-action="CreatePost" method="post">
+            @Html.AntiForgeryToken()
+            <h1>Post a Message:</h1>
+            <span asp-validation-for="Message"></span>
+            <textarea name="Message" id="Message" cols="30" rows="10">
+
+            </textarea>
+            <input type="hidden" name="CreatedById" value="@ViewBag.userId">
+            <input type="submit" value="Post a Message">
+        </form>
+    </div>
+    <!-- Loop for top 3 messages -->
+    <div class="messages">
+        @{var posts = ViewBag.posts;
+           @if(posts != null){
+               @foreach(var post in posts)
+                {   
+                    <div class="message">
+                        <p><a href="users/@post.CreatedById">@post.CreatedBy.Alias</a> says:</p>
+                        <p>@post.Message</p>
+                        <div>
+                            @{
+                                <a href="like/@ViewBag.userId/@post.PostId">Like</a>
+                                <p><a href="/bright_ideas/@post.PostId">@post.likes.Count people</a> like this.</p>
+                                    
+                                
+                            }
+                        </div>
+                        @if(ViewBag.userId == post.CreatedById)
+                        {
+                            <form action="deletePost" method= "post">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="PostId" value="@post.PostId">
+                                <button type="submit">Delete Post</button>
+                            </form>
+                            
+                        }
+                    </div>
+                    
+                }
+           } 
+        }
+        
+    </div>

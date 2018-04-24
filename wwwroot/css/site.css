@@ -1,0 +1,91 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+.container {
+	/* border:5px solid black; */
+	width:500px;
+	margin:0px auto;
+	padding:10px;
+}
+
+.submit {
+	background-color: #76A5AF;
+	color:white;
+	margin:10px;
+}
+
+.login {
+	background-color: #76A5AF;
+}
+.login_submit {
+	margin:10px;
+}
+.comment_box {
+	min-width:450px;
+	min-height: 200px;
+	margin:auto;
+}
+
+label {
+	display: block;
+	padding:10px;
+}
+
+form {
+	/* border:5px solid black; */
+	padding: 20px;
+}
+
+.message {
+	border:5px solid black;
+	margin:10px 0px;
+	padding:10px;
+}
+
+.comment {
+	border-style: outset;
+	padding:10px;
+	margin:10px;
+}
+
+#col1, #col2, #col3, #col4{
+    min-width:150px;
+    padding: 10px;
+}
+
+#row1, #row2,#row3,#row4 {
+    padding:10px;
+}
